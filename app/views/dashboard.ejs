@@ -1,0 +1,33 @@
+<% include _header %>
+  <% include _navigation %>
+
+  <main class="content_wrapper">
+    <% for(var i = 0; i < boards.length; i++) { %>
+      <div id="<%= boards[i]._id %>" class="board_body">
+        <div class="board_header">
+          <h3 class="board_title"><%= boards[i].title %></h3>
+          <p class="board_description"><%= boards[i].description %></p>
+          <span class="add_new_board_item">Add item</span>
+        </div>
+        <div class="board_workplace">
+          <% for(var y = 0; y < boards[i].items.length; y++) { %>
+            <span id="<%= boards[i].items[y]._id %>" class="board_workplace_item">
+              <span class="board_workplace_item_drag">Drag me</span>
+              <h6><%= boards[i].items[y].title %></h6>
+              <p><%= boards[i].items[y].description %></p>
+            </span>
+          <% } %>
+        </div>
+      </div>
+    <% } %>
+  </main>
+
+
+  <!-- START MY SCRIPTS -->
+  <script src="/js/lib/Sortable/Sortable.min.js" charset="utf-8"></script>
+  <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+  <script src="/js/core.js" charset="utf-8"></script>
+  <script src="/js/board.js" charset="utf-8"></script>
+  <!-- END MY SCRIPTS -->
+
+<% include _footer %>

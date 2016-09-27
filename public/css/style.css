@@ -1,0 +1,69 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, p:before, p:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 3rem;
+  background: red; }
+  nav ul {
+    display: block;
+    width: inherit;
+    height: inherit; }
+    nav ul li {
+      float: left;
+      padding: 0 0 0 1rem;
+      display: block; }
+      nav ul li a, nav ul li span {
+        line-height: 3rem; }
+
+main.content_wrapper {
+  margin-top: 3rem;
+  background: #F8F8F8;
+  overflow-y: hidden;
+  overflow-x: scroll; }
+  main.content_wrapper div.board_body {
+    float: left;
+    margin: 1rem;
+    padding: 1rem;
+    width: 15rem;
+    background: #FFF; }
+    main.content_wrapper div.board_body div.board_header {
+      display: block;
+      padding-bottom: .5rem;
+      border-bottom: .1rem solid  #A1A1A1; }
+      main.content_wrapper div.board_body div.board_header h3.board_title {
+        display: block; }
+      main.content_wrapper div.board_body div.board_header p.board_description {
+        display: block; }
+    main.content_wrapper div.board_body div.board_workplace {
+      min-height: 10rem; }
+      main.content_wrapper div.board_body div.board_workplace span.board_workplace_item {
+        cursor: move;
+        cursor: -webkit-grabbing; }

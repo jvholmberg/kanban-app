@@ -1,0 +1,35 @@
+main.content_wrapper {
+  margin-top: 3rem;
+  background: #F8F8F8;
+  overflow-y: hidden;
+  overflow-x: scroll;
+
+  div.board_body {
+    float: left;
+    margin: 1rem;
+    padding: 1rem;
+    width: 15rem;
+    background: #FFF;
+
+    div.board_header {
+      display: block;
+      padding-bottom: .5rem;
+      border-bottom: .1rem solid  #A1A1A1;
+
+      h3.board_title {
+        display: block;
+      }
+      p.board_description {
+        display: block;
+      }
+    }
+    div.board_workplace {
+      min-height: 10rem;
+
+      span.board_workplace_item {
+        cursor: move;
+        cursor: -webkit-grabbing;
+      }
+    }
+  }
+}
