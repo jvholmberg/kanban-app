@@ -3,9 +3,16 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-var BoardSchema = new Schema({
-  title: String,
-  description: String,
+var ItemSchema = new Schema({
+  _story: String,
+  _owner: String
+  users: [{
+    _user: String,
+    permission: String,
+    history: [{
+
+    }]
+  }],
   items: [{
     _id : String,
     _board: String,
@@ -13,13 +20,12 @@ var BoardSchema = new Schema({
     description: String,
     comments: [],
     history: []
-  }],
-  history: []
+  }]
 });
 
-BoardSchema.virtual('date')
+ItemSchema.virtual('date')
   .get(function(){
     return this._id.getTimestamp();
   });
 
-mongoose.model('Board', BoardSchema);
+mongoose.model('Item', ItemSchema);

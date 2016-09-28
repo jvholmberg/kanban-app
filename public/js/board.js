@@ -21,6 +21,7 @@
   }
   function init() {
     // Fetch all boards from api and group them
+    
     xhr('/api/board')
       .get(null, DEFAULT_HEADERS)
       .then((data) => {
