@@ -4,17 +4,22 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var BoardSchema = new Schema({
+  _story: String,
+  _owner: String,
   title: String,
-  description: String,
-  items: [{
-    _id : String,
-    _board: String,
-    title: String,
-    description: String,
-    comments: [],
-    history: []
+  text: String,
+  users: [{
+    _user: String,
+    permission: String
   }],
-  history: []
+  items: [String],
+  history: [{
+    _id: String,
+    _user: String,
+    action: String,
+    text: String,
+    timestamp: { type: Date, default: Date.now }
+  }]
 });
 
 BoardSchema.virtual('date')

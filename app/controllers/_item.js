@@ -10,19 +10,24 @@ module.exports = function(app, io) {
   * new item to all users in realtime.
   *
   * @InParams: {_story, _owner, title, text}
-  * @OutParams: {_board, _item, title, text, history}
+  * @OutParams: {_item, _board, title, text, history}
   */
   io.on('CREATE_ITEM', (data) => {
     // Create history for item
-    let history = {
+    data['history'] = [{
       _id: new mongoose.Types.ObjectId(),
-      _user: data._user,
+      _user: data._owner,
       action: 'CREATE_ITEM'
-    };
-    data['history'] = [history];
+    }];
     Item.create(data, (err, item) => {
       if (err) return next(err);
-      io.emit('CREATE_ITEM', item);
+      io.emit('CREATE_ITEM', {
+        _item: item._id,
+        _board: item._board,
+        title: item.title,
+        text: item.text,
+        history: item.history
+      });
     });
   });
   /*
@@ -33,30 +38,32 @@ module.exports = function(app, io) {
   * @OutParams: {_item, title, text, history}
   */
   io.on('UPDATE_ITEM', (data) => {
-    // Create history for item
-    let history = {
-      _id: new mongoose.Types.ObjectId(),
-      _user: data._user,
-      action: 'UPDATE_ITEM'
-    };
     Item.findByIdAndUpdate(
       data._item,
       {$set:{ title: data.title,
-              text: data.text},
-      {$push: {history: history}},
+              text: data.text}},
+      {$push: {history: {
+        _id: new mongoose.Types.ObjectId(),
+        _user: data._user,
+        action: 'UPDATE_ITEM'
+      }}},
       {safe: true, upsert: true},
       (err, item) => {
         if (err) return next(err);
-        io.emit('UPDATE_ITEM', item);
-      });
-    );
+        io.emit('UPDATE_ITEM', {
+          _item: item._id,
+          title: item.title,
+          text: item.text,
+          history: item.history
+        });
+    });
   });
   /*
   * Remove an existing board and transmit changes
   * to all users in realtime.
   *
   * @InParams: {_item}
-  * @OutParams: {_item}
+  * @OutParams: {_item, _board}
   */
   io.on('REMOVE_ITEM', (data) => {
     // TODO: This should not immediatly remove doc but instead move it to trash.

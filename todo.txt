@@ -1,1 +1,4 @@
 #1 Use socket.io to communicate between server and clients
+#2 Add support for adding users to stories, boards and items
+#3 Add support for permissions
+#4 Add authentication

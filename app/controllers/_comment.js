@@ -9,7 +9,7 @@ module.exports = function(app, io) {
   * new comment to all users in realtime.
   *
   * @InParams: {_item, _user, text}
-  * @OutParams: {_board, _item, _user, text}
+  * @OutParams: {_item, _user, text}
   */
   io.on('CREATE_COMMENT', (data) => {
     // Create _id for comment
@@ -17,23 +17,22 @@ module.exports = function(app, io) {
     // Set variable to value of _item and remove from data object
     let _item = data._item;
     delete data['_item'];
-    // Create history
-    let history = {
-      _id: new mongoose.Types.ObjectId(),
-      _user: data._user,
-      action: 'CREATE_COMMENT'
-    };
     // Find item and append comment to it
     Item.findByIdAndUpdate(
       _item,
-      {$push: {'history': history}},
-      {$push: {'comments': data}},
+      {$push: {history: {
+        _id: new mongoose.Types.ObjectId(),
+        _user: data._user,
+        action: 'CREATE_COMMENT'
+      }}},
       {safe: true, upsert: true, new: true},
-      (err, item) => {
+      (err, comment) => {
         if (err) return next(err);
-        // Tell client which item comment corresponds to
-        comment['_item'] = _item;
-        io.emit('CREATE_COMMENT', comment);
+        io.emit('CREATE_COMMENT', {
+          _item: comment._item,
+          _user: comment._user,
+          text: comment.text
+        });
     });
   });
   /*
@@ -44,20 +43,22 @@ module.exports = function(app, io) {
   * @OutParams: {_board, _item, _comment}
   */
   io.on('REMOVE_COMMENT', (data) => {
-    // Create history
-    let history = {
-      _id: new mongoose.Types.ObjectId(),
-      _user: data._user,
-      action: 'REMOVE_COMMENT'
-    };
     Item.findByIdAndUpdate(
       data._item,
-      {$push: {history: history}},
+      {$push: {history: {
+        _id: new mongoose.Types.ObjectId(),
+        _user: data._user,
+        action: 'REMOVE_COMMENT'
+      }}},
       {$pull: {comments: {_id: data._comment}}},
       {safe: true, upsert: true},
       (err) => {
         if (err) return next(err);
-        io.emit('REMOVE_COMMENT', data);
+        io.emit('REMOVE_COMMENT', {
+          _board: data._board,
+          _item: data._item,
+          _comment: data._comment
+        });
     });
   });
 };
