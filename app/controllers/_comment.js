@@ -21,7 +21,7 @@ module.exports = function(app, io) {
     let history = {
       _id: new mongoose.Types.ObjectId(),
       _user: data._user,
-      action: 'CREATE_COMMENT',
+      action: 'CREATE_COMMENT'
     };
     // Find item and append comment to it
     Item.findByIdAndUpdate(
@@ -32,7 +32,7 @@ module.exports = function(app, io) {
       (err, item) => {
         if (err) return next(err);
         // Tell client which item comment corresponds to
-        comment['$item'] = _item;
+        comment['_item'] = _item;
         io.emit('CREATE_COMMENT', comment);
     });
   });
@@ -48,12 +48,12 @@ module.exports = function(app, io) {
     let history = {
       _id: new mongoose.Types.ObjectId(),
       _user: data._user,
-      action: 'REMOVE_COMMENT',
+      action: 'REMOVE_COMMENT'
     };
     Item.findByIdAndUpdate(
       data._item,
-      {$push: {'history': history}},
-      {$pull: {'comments': {_id: data._comment}}},
+      {$push: {history: history}},
+      {$pull: {comments: {_id: data._comment}}},
       {safe: true, upsert: true},
       (err) => {
         if (err) return next(err);
