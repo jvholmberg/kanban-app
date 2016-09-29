@@ -28,6 +28,14 @@ module.exports = function(app, io, config) {
   app.use(methodOverride());
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
+
+  io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+      console.log('user disconnected');
+    });
+  });
+
   controllers.forEach(function (controller) {
     require(controller)(app, io);
   });

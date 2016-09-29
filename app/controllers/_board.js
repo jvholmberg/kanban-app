@@ -6,6 +6,8 @@ var express = require('express'),
   Item = mongoose.model('Item');
 
 module.exports = function(app, io) {
+  console.log('_board.js');
+
   /*
   * Create a new board for story and when created transmit
   * new board to all users in realtime.
@@ -14,6 +16,8 @@ module.exports = function(app, io) {
   * @OutParams: {_board, _owner, title, text}
   */
   io.on('CREATE_BOARD', (data) => {
+    console.log('CREATE_BOARD');
+
     // Set variable to value of _story and remove from data object
     let _story = data._story;
     delete data['_story'];
