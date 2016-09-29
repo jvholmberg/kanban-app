@@ -38,8 +38,6 @@ module.exports = function(app, io) {
   * Update an existing boards information and then transmit
   * changes to all users in realtime.
   *
-  * @InParams: {_id, _board, title, description}
-  * @InParams: {_id, _board, title, description, comment}
   * @InParams: {_id, _board, title, description, comment}
   * @OutParams: {_id, _board, title, description, comments, history}
   */
@@ -49,7 +47,6 @@ module.exports = function(app, io) {
       { '$set': { 'items.$._board': data._board,
                   'items.$.title': data.title,
                   'items.$.description': data.description } },
-      { '$push': { 'items.comments': data. } }
     );
 
     Board.findByIdAndUpdate(

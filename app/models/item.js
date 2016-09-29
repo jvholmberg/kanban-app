@@ -5,21 +5,25 @@ var mongoose = require('mongoose'),
 
 var ItemSchema = new Schema({
   _story: String,
-  _owner: String
+  _owner: String,
+  title: String,
+  text: String,
   users: [{
     _user: String,
-    permission: String,
-    history: [{
-
-    }]
+    permission: String
   }],
-  items: [{
+  history: [{
+    _id: String,
+    _user: String,
+    action: String,
+    text: String,
+    timestamp: { type: Date, default: Date.now }
+  }],
+  comments: [{
     _id : String,
-    _board: String,
-    title: String,
-    description: String,
-    comments: [],
-    history: []
+    _user: String,
+    text: String,
+    timestamp: { type: Date, default: Date.now }
   }]
 });
 
