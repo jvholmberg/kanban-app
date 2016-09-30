@@ -1,13 +1,14 @@
-var express = require('express'),
+var assert = require('assert'),
+  express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
+  Promise = require('bluebird'),
   Story = mongoose.model('Story'),
   Board = mongoose.model('Board'),
   Item = mongoose.model('Item');
 
 module.exports = function(app, io) {
-  console.log('_board.js');
-
+  mongoose.Promise = Promise;
   /*
   * Create a new board for story and when created transmit
   * new board to all users in realtime.
@@ -17,7 +18,6 @@ module.exports = function(app, io) {
   */
   io.on('CREATE_BOARD', (data) => {
     console.log('CREATE_BOARD');
-
     // Set variable to value of _story and remove from data object
     let _story = data._story;
     delete data['_story'];
@@ -27,12 +27,14 @@ module.exports = function(app, io) {
       _user: data._owner,
       action: 'CREATE_BOARD'
     }];
+
     Board.create(data, (err, board) => {
-      if (err) return next(err);
+      if (err) return io.emit('ERROR', 'Error');
       Story.findByIdAndUpdate(_story,
         {$push: {items: board._id}},
         (err, story) => {
-          if (err) return next(err);
+          console.log(err);
+          if (err) return io.emit('ERROR', 'Error');
           io.emit('CREATE_BOARD', {
             _board: board._id,
             _owner: board._owner,

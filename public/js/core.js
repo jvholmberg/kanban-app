@@ -73,16 +73,16 @@ var core = {
     };
 
     return {
-      'get': (args, headers) => {
+      get: (args, headers) => {
         return core.ajax('GET', url, args, headers);
       },
-      'post': (args, headers) => {
+      post: (args, headers) => {
         return core.ajax('POST', url, args, headers);
       },
-      'put': (args, headers) => {
+      put: (args, headers) => {
         return core.ajax('PUT', url, args, headers);
       },
-      'delete': (args, headers) => {
+      delete: (args, headers) => {
         return core.ajax('DELETE', url, args, headers);
       }
     };

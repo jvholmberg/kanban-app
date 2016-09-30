@@ -27,18 +27,26 @@ module.exports = function(app, io, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
 
   io.on('connection', function(socket){
     console.log('a user connected');
+
+    require(config.root + '/app/controllers/_story.js')(app, socket);
+    require(config.root + '/app/controllers/_board.js')(app, socket);
+    require(config.root + '/app/controllers/_comment.js')(app, socket);
+    require(config.root + '/app/controllers/_item.js')(app, socket);
+
     socket.on('disconnect', function(){
       console.log('user disconnected');
     });
   });
 
-  controllers.forEach(function (controller) {
-    require(controller)(app, io);
-  });
+  require(config.root + '/app/controllers/routes.js')(app, io);
+
+  // var controllers = glob.sync(config.root + '/app/controllers/*.js');
+  // controllers.forEach(function (controller) {
+  //   require(controller)(app, io);
+  // });
 
   app.use(function (req, res, next) {
     var err = new Error('Not Found');
