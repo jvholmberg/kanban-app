@@ -1,7 +1,9 @@
 var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
-  Story = mongoose.model('Story');
+  Story = mongoose.model('Story'),
+  Board = mongoose.model('Board'),
+  Item = mongoose.model('Item');
 
 module.exports = function(app, io) {
   /*

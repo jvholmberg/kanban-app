@@ -9,7 +9,7 @@ module.exports = function(app, io) {
   * Create a new item for story and emit
   * new item to all users in realtime.
   *
-  * @InParams: {_story, _owner, title, text}
+  * @InParams: {_story, _board, _owner, title, text}
   * @OutParams: {_item, _board, title, text, history}
   */
   io.on('CREATE_ITEM', (data) => {

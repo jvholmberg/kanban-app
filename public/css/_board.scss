@@ -1,32 +1,32 @@
-main.content_wrapper {
+main#wrapper {
   margin-top: 3rem;
   background: #F8F8F8;
   overflow-y: hidden;
   overflow-x: scroll;
 
-  div.board_body {
+  div.board {
     float: left;
     margin: 1rem;
     padding: 1rem;
     width: 15rem;
     background: #FFF;
 
-    div.board_header {
+    div.boardHeader {
       display: block;
       padding-bottom: .5rem;
       border-bottom: .1rem solid  #A1A1A1;
 
-      h3.board_title {
+      h6 {
         display: block;
       }
-      p.board_description {
+      p {
         display: block;
       }
     }
-    div.board_workplace {
+    div.board {
       min-height: 10rem;
 
-      span.board_workplace_item {
+      span.item {
         cursor: move;
         cursor: -webkit-grabbing;
       }

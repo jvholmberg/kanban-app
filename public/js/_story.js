@@ -1,12 +1,25 @@
 'use strict';
 
-function story(socketio) {
+function story(socketio, root) {
 
   let self = {
-    init: () => {
-      self.bindReceivers();
-      self.bindEvents();
+    init: (id) => {
+
+      core.xhr('/api/story/' + id).get(null, null)
+        .then(self.loadStory)
+        .catch((err) => {
+          console.log(err);
+        });
+
+
+
+      // self.bindReceivers();
+      // self.bindEvents();
     },
+    loadStory: (data) => {
+
+    },
+
     emitCreateStory: () => {
       socketio.emit('CREATE_STORY', {
         _story: '_story',

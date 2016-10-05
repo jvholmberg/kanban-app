@@ -27,35 +27,36 @@ module.exports = function(app, io, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
+  console.log('lol');
 
-  io.on('connection', function(socket){
+  // Setup socket.io communication
+  io.on('connection', (socket) => {
     console.log('a user connected');
 
-    require(config.root + '/app/controllers/_story.js')(app, socket);
-    require(config.root + '/app/controllers/_board.js')(app, socket);
-    require(config.root + '/app/controllers/_comment.js')(app, socket);
-    require(config.root + '/app/controllers/_item.js')(app, socket);
+    var controllers = glob.sync(config.root + '/app/controllers/_*.js');
+    controllers.forEach((controller) => {
+      require(controller)(app, socket);
+    });
 
-    socket.on('disconnect', function(){
+    socket.on('disconnect', () => {
       console.log('user disconnected');
     });
   });
 
-  require(config.root + '/app/controllers/routes.js')(app, io);
+  // Setup routing and rest
+  require(config.root + '/app/controllers/routes.js')(app);
+  require(config.root + '/app/controllers/loader.js')(app);
 
-  // var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  // controllers.forEach(function (controller) {
-  //   require(controller)(app, io);
-  // });
 
-  app.use(function (req, res, next) {
+
+  app.use((req, res, next) => {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
   });
 
   if(app.get('env') === 'development'){
-    app.use(function (err, req, res, next) {
+    app.use((err, req, res, next) => {
       res.status(err.status || 500);
       res.render('error', {
         message: err.message,
@@ -65,7 +66,7 @@ module.exports = function(app, io, config) {
     });
   }
 
-  app.use(function (err, req, res, next) {
+  app.use((err, req, res, next) => {
     res.status(err.status || 500);
       res.render('error', {
         message: err.message,

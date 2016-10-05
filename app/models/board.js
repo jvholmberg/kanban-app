@@ -12,7 +12,6 @@ var BoardSchema = new Schema({
     _user: String,
     permission: String
   }],
-  items: [String],
   history: [{
     _id: String,
     _user: String,

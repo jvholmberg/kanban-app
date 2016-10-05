@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var ItemSchema = new Schema({
   _story: String,
   _owner: String,
+  _board: String,
   title: String,
   text: String,
   users: [{
@@ -17,6 +18,8 @@ var ItemSchema = new Schema({
     _user: String,
     action: String,
     text: String,
+    from: String,
+    to: String,
     timestamp: { type: Date, default: Date.now }
   }],
   comments: [{

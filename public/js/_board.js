@@ -1,6 +1,6 @@
 'use strict';
 
-function board(socketio) {
+function board(socketio, wrapper, data) {
 
   let self = {
     init: () => {
@@ -8,6 +8,7 @@ function board(socketio) {
       self.bindEvents();
     },
     emitCreateBoard: () => {
+      console.log('CREATE_BOARD');
       socketio.emit('CREATE_BOARD', {
         _story: '57eea6a54c34702776e5a638',
         _owner: '_owner',
@@ -29,7 +30,21 @@ function board(socketio) {
     },
 
     createBoard: (data) => {
+      let html =
+      '<div id="'+data._board+'" class="board">'+
+        '<div class="boardHeader">'+
+          '<h6>'+data.title+'</h6>'+
+          '<p>'+data.text+'</p>'+
+          '<span class="createItem">New item</span>'+
+        '</div>'+
+        '<div class="boardItems">'+
 
+        '</div>'+
+      '</div>';
+      core.appendTextAsHtml(wrapper, html);
+
+      // let el = document.getElementsByClassName('#'+data._board+'.createItem');
+      // core.addEventListener(el, 'click', )
     },
     updateBoard: (data) => {
       console.log(data);

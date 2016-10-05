@@ -43,27 +43,27 @@ nav {
       nav ul li a, nav ul li span {
         line-height: 3rem; }
 
-main.content_wrapper {
+main#wrapper {
   margin-top: 3rem;
   background: #F8F8F8;
   overflow-y: hidden;
   overflow-x: scroll; }
-  main.content_wrapper div.board_body {
+  main#wrapper div.board {
     float: left;
     margin: 1rem;
     padding: 1rem;
     width: 15rem;
     background: #FFF; }
-    main.content_wrapper div.board_body div.board_header {
+    main#wrapper div.board div.boardHeader {
       display: block;
       padding-bottom: .5rem;
       border-bottom: .1rem solid  #A1A1A1; }
-      main.content_wrapper div.board_body div.board_header h3.board_title {
+      main#wrapper div.board div.boardHeader h6 {
         display: block; }
-      main.content_wrapper div.board_body div.board_header p.board_description {
+      main#wrapper div.board div.boardHeader p {
         display: block; }
-    main.content_wrapper div.board_body div.board_workplace {
+    main#wrapper div.board div.board {
       min-height: 10rem; }
-      main.content_wrapper div.board_body div.board_workplace span.board_workplace_item {
+      main#wrapper div.board div.board span.item {
         cursor: move;
         cursor: -webkit-grabbing; }

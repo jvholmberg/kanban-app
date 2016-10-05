@@ -27,7 +27,6 @@ module.exports = function(app, io) {
       _user: data._owner,
       action: 'CREATE_BOARD'
     }];
-
     Board.create(data, (err, board) => {
       if (err) return io.emit('ERROR', 'Error');
       Story.findByIdAndUpdate(_story,

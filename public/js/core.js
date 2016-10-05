@@ -30,10 +30,9 @@ var core = {
     let core = {
       ajax: (method, url, args, headers) => {
         // Set default headers if none are provided
-        headers = (typeof headers === 'object') ? headers
-          : {
-            'Content-Type': 'application/json; charset=utf-8'
-          };
+        headers = {
+          'Content-Type': 'application/json; charset=utf-8'
+        };
 
         return new Promise((resolve, reject) => {
           let xhr = new XMLHttpRequest();
@@ -89,5 +88,35 @@ var core = {
   },
   alertService: (msg) => {
     console.log(msg);
+  },
+  local: () => {
+    let ls = window.localStorage;
+
+
+
+    return {
+      get: (path, obj) => {
+        if (path === null) {
+          ls.setItem(obj);
+        }
+      },
+      create: (path, obj) => {
+        if (path === null) {
+          ls.setItem(JSON.stringify(obj));
+        } else {
+
+        }
+      },
+      update: (path, obj) => {
+        if (path === null) {
+          ls.setItem(obj);
+        }
+      },
+      delete: (path, obj) => {
+        if (path === null) {
+          ls.setItem(obj);
+        }
+      }
+    };
   }
 };
