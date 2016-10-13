@@ -13,14 +13,19 @@ module.exports = function(app, io) {
   * @OutParams: {_story, _owner, title, text, history}
   */
   io.on('CREATE_STORY', (data) => {
-    // Create history for story
-    data['history'] = [{
-      _id: new mongoose.Types.ObjectId(),
-      _user: data._owner,
-      action: 'CREATE_STORY'
-    }];
-    Story.create(data, (err, story) => {
-      if (err) return next(err);
+    console.log('CREATE_STORY');
+
+    Story.create({
+      _owner: data._owner,
+      title: data.title,
+      text: data.text,
+      history: [{
+        _id: new mongoose.Types.ObjectId(),
+        _user: data._owner,
+        action: 'CREATE_STORY'
+      }]
+    }, (err, story) => {
+      if (err) return io.emit('ERROR', err);
       io.emit('CREATE_STORY', {
         _story: story._id,
         _owner: story._owner,
@@ -49,7 +54,7 @@ module.exports = function(app, io) {
       }}},
       {safe: true, upsert: true},
       (err, story) => {
-        if (err) return next(err);
+        if (err) return io.emit('ERROR', err);
         io.emit('UPDATE_STORY', {
           _story: data,
           title: story.title,
@@ -67,7 +72,7 @@ module.exports = function(app, io) {
   */
   io.on('REMOVE_STORY', (data) => {
     Story.remove({_id: data._story }, (err) => {
-      if (err) return next(err);
+      if (err) return io.emit('ERROR', err);
       io.emit('REMOVE_STORY', { _story: data._story });
     });
   });

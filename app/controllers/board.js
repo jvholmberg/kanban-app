@@ -2,7 +2,6 @@ var assert = require('assert'),
   express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
-  Promise = require('bluebird'),
   Story = mongoose.model('Story'),
   Board = mongoose.model('Board'),
   Item = mongoose.model('Item');

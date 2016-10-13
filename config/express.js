@@ -7,8 +7,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
 
 module.exports = function(app, io, config) {
+
   var env = process.env.NODE_ENV || 'development';
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env == 'development';
@@ -27,16 +31,25 @@ module.exports = function(app, io, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  console.log('lol');
+  app.use(flash());
+
+  app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  require('./passport');
 
   // Setup socket.io communication
   io.on('connection', (socket) => {
     console.log('a user connected');
 
-    var controllers = glob.sync(config.root + '/app/controllers/_*.js');
-    controllers.forEach((controller) => {
-      require(controller)(app, socket);
-    });
+    // var controllers = glob.sync(config.root + '/app/controllers/*.js');
+    // controllers.forEach((controller) => {
+    //   require(controller)(app, socket);
+    // });
 
     socket.on('disconnect', () => {
       console.log('user disconnected');
@@ -45,7 +58,6 @@ module.exports = function(app, io, config) {
 
   // Setup routing and rest
   require(config.root + '/app/controllers/routes.js')(app);
-  require(config.root + '/app/controllers/loader.js')(app);
 
 
 

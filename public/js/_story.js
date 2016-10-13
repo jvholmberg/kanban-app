@@ -13,14 +13,15 @@ function story(socketio, root) {
 
 
 
-      // self.bindReceivers();
-      // self.bindEvents();
+      self.bindReceivers();
+      self.bindEvents();
     },
     loadStory: (data) => {
 
     },
 
     emitCreateStory: () => {
+      console.log('emitCreateStory');
       socketio.emit('CREATE_STORY', {
         _story: '_story',
         _owner: '_owner',
@@ -29,6 +30,7 @@ function story(socketio, root) {
       });
     },
     emitUpdateStory: () => {
+      console.log('emitUpdateStory');
       socketio.emit('UPDATE_STORY', {
         _story: '_story',
         _owner: '_owner',
@@ -37,6 +39,7 @@ function story(socketio, root) {
       });
     },
     emitRemoveStory: () => {
+      console.log('emitRemoveStory');
       socketio.emit('REMOVE_STORY', {
         _story: '_story',
       });
