@@ -1,0 +1,16 @@
+<nav>
+  <ul>
+    <li><span>Kanban</span></li>
+    <% if (isLoggedIn) { %>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+    <% } %>
+  </ul>
+  <ul>
+    <% if (isLoggedIn) { %>
+      <li><a class="btn danger-btn" href="/logout">Log out</a></li>
+    <% } else { %>
+      <li><a class="btn danger-btn" href="/login">Login</a></li>
+    <% } %>
+  </ul>
+</nav>

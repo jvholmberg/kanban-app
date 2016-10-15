@@ -1,0 +1,17 @@
+@mixin box-shadow($x: 0, $y: .2rem, $blur: .1rem, $spread: 0, $color: rgba(0, 0, 0, .1), $inset: true) {
+  @if $inset {
+    -webkit-box-shadow:inset $x $y $blur $spread $color;
+    -moz-box-shadow:inset $x $y $blur $spread $color;
+    box-shadow:inset $x $y $blur $spread $color;
+  } @else {
+    -webkit-box-shadow: $x $y $blur $spread $color;
+    -moz-box-shadow: $x $y $blur $spread $color;
+    box-shadow: $x $y $blur $spread $color;
+  }
+}
+@mixin user-select($param) {
+  -webkit-user-select: $param;
+  -moz-user-select: $param;
+  -ms-user-select: $param;
+  user-select: $param;
+}

@@ -33,5 +33,24 @@ table {
 
 // THEME-DEFAULTS
 
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  margin-top: 5rem;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 1.4rem;
+}
+
+@import 'mixins';
+@import 'colors';
+@import 'input';
+@import 'buttons';
+
 @import 'navigation';
 @import 'board';

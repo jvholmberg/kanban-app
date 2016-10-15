@@ -25,7 +25,8 @@ router.get('/', (req, res) => {
 *********************************************/
 router.get('/register', (req, res) => {
   res.render('register', {
-    title: 'Register'
+    title: 'Register',
+    isLoggedIn: req.user
   });
 });
 
@@ -33,9 +34,7 @@ router.post('/register', (req, res) => {
 
   // Check if passwords match
   if (req.body.password !== req.body.password2) {
-    return res.render('register', {
-      title: 'Register'
-    });
+    return res.redirect('/register');
   }
 
   // Check if username is taken
@@ -65,7 +64,8 @@ router.post('/register', (req, res) => {
 *********************************************/
 router.get('/login', (req, res) => {
   res.render('login', {
-    title: 'Login'
+    title: 'Login',
+    isLoggedIn: req.user
   });
 });
 
@@ -78,11 +78,33 @@ router.post('/login',
 );
 
 /*********************************************
+* Logout
+*********************************************/
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+/*********************************************
 * Profile
+* @restricted
 *********************************************/
 router.get('/profile', (req, res) => {
   if (!req.user) return res.redirect('/login');
   res.render('profile', {
-    title: 'Profile'
+    title: 'Profile',
+    isLoggedIn: true
+  });
+});
+
+/*********************************************
+* Dashboard
+* @restricted
+*********************************************/
+router.get('/dashboard', (req, res) => {
+  if (!req.user) return res.redirect('/login');
+  res.render('dashboard', {
+    title: 'Dashboard',
+    isLoggedIn: true
   });
 });

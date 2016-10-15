@@ -5,16 +5,18 @@
 
   <form action="/login" method="post">
     <div>
-        <label>Username:</label>
-        <input type="text" name="username"/>
+      <label>Username:</label>
+      <input class="form-control" type="text" name="username"/>
     </div>
     <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
+      <label>Password:</label>
+      <input class="form-control" type="password" name="password"/>
     </div>
     <div>
-        <input type="submit" value="Log In"/>
+      <input class="btn success-btn" type="submit" value="Log In"/>
+      <a class="btn default-btn" href="/register">Register</a>
     </div>
 </form>
+
 
 <% include _footer %>

@@ -1,0 +1,88 @@
+.btn {
+  display: inline-block;
+  padding: 1rem 4rem;
+  margin: 0;
+  height: 3.4rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+  line-height: 1.4rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  @include user-select(none);
+  background-image: none;
+  border-radius: .3rem;
+  outline: 0;
+  border: none;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-sizing: border-box;
+
+  &.primary-btn {
+    background: $primary-normal;
+    &:hover {
+      background-color: $primary-hover;
+    }
+    &:active {
+      @include box-shadow();
+    }
+  }
+  &.success-btn {
+    background: $success-normal;
+    &:hover {
+      background-color: $success-hover;
+    }
+    &:active {
+      @include box-shadow();
+    }
+  }
+  &.warning-btn {
+    background: $warning-normal;
+    &:hover {
+      background-color: $warning-hover;
+    }
+    &:active {
+      @include box-shadow();
+    }
+  }
+  &.danger-btn {
+    background: $danger-normal;
+    &:hover {
+      background-color: $danger-hover;
+    }
+    &:active {
+      @include box-shadow();
+    }
+  }
+  &.info-btn {
+    background: $info-normal;
+    &:hover {
+      background-color: $info-hover;
+    }
+    &:active {
+      @include box-shadow();
+    }
+  }
+  &.normal-btn {
+    background: $normal-normal;
+    &:hover {
+      background-color: $normal-hover;
+    }
+    &:active {
+      @include box-shadow();
+    }
+  }
+  &.default-btn {
+    color: #000000;
+    background: $default-normal;
+    &:hover {
+      background-color: $default-hover;
+    }
+    &:active {
+      @include box-shadow();
+    }
+  }
+}

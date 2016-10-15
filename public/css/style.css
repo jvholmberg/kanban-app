@@ -26,22 +26,160 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+html {
+  font-family: 'Roboto', sans-serif; }
+
+main {
+  margin-top: 5rem; }
+
+html {
+  font-size: 10px; }
+
+body {
+  font-size: 1.4rem; }
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 3.4rem;
+  box-sizing: border-box;
+  padding: 1rem 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+  line-height: 1.4rem;
+  white-space: nowrap;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: .1rem solid #ccc;
+  border-radius: .3rem;
+  -webkit-box-shadow: inset 0 0.1rem 0.1rem rgba(0, 0, 0, 0.075) 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0.1rem 0.1rem rgba(0, 0, 0, 0.075) 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0.1rem 0.1rem rgba(0, 0, 0, 0.075) 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+
+.btn {
+  display: inline-block;
+  padding: 1rem 4rem;
+  margin: 0;
+  height: 3.4rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+  line-height: 1.4rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border-radius: .3rem;
+  outline: 0;
+  border: none;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-sizing: border-box; }
+  .btn.primary-btn {
+    background: #3BAFDA; }
+    .btn.primary-btn:hover {
+      background-color: #4FC1E9; }
+    .btn.primary-btn:active {
+      -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
+  .btn.success-btn {
+    background: #8CC152; }
+    .btn.success-btn:hover {
+      background-color: #A0D468; }
+    .btn.success-btn:active {
+      -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
+  .btn.warning-btn {
+    background: #F6BB42; }
+    .btn.warning-btn:hover {
+      background-color: #FFCE54; }
+    .btn.warning-btn:active {
+      -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
+  .btn.danger-btn {
+    background: #DA4453; }
+    .btn.danger-btn:hover {
+      background-color: #ED5565; }
+    .btn.danger-btn:active {
+      -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
+  .btn.info-btn {
+    background: #37BC9B; }
+    .btn.info-btn:hover {
+      background-color: #48CFAD; }
+    .btn.info-btn:active {
+      -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
+  .btn.normal-btn {
+    background: #AAB2BD; }
+    .btn.normal-btn:hover {
+      background-color: #CCD1D9; }
+    .btn.normal-btn:active {
+      -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
+  .btn.default-btn {
+    color: #000000;
+    background: #FFFFFF; }
+    .btn.default-btn:hover {
+      background-color: #CCD1D9; }
+    .btn.default-btn:active {
+      -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
+
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 3rem;
-  background: red; }
+  height: 5rem;
+  background: #333333;
+  box-sizing: border-box; }
   nav ul {
     display: block;
-    width: inherit;
-    height: inherit; }
+    padding: .8rem 0;
+    float: left;
+    width: 50%;
+    height: inherit;
+    box-sizing: border-box; }
     nav ul li {
       float: left;
       padding: 0 0 0 1rem;
       display: block; }
-      nav ul li a, nav ul li span {
-        line-height: 3rem; }
+      nav ul li span {
+        line-height: 3.4rem;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: #DA4453;
+        cursor: default; }
+      nav ul li a {
+        line-height: 3.4rem;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: #8C8C8C; }
+        nav ul li a.active {
+          background-color: #000000;
+          color: #FFFFFF; }
+        nav ul li a:hover {
+          color: #FFFFFF; }
+  nav ul + ul li {
+    float: right;
+    padding: 0 1rem 0 0; }
 
 main#wrapper {
   margin-top: 3rem;

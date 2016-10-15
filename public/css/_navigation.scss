@@ -2,33 +2,48 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 3rem;
-  background: red;
+  height: 5rem;
+  background: $black-normal;
+  box-sizing: border-box;
 
   ul {
     display: block;
-    width: inherit;
+    padding: .8rem 0;
+    float: left;
+    width: 50%;
     height: inherit;
+    box-sizing: border-box;
 
     li {
       float: left;
       padding: 0 0 0 1rem;
       display: block;
 
-      a, span {
-        line-height: 3rem;
+      span {
+        line-height: 3.4rem;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: $danger-normal;
+        cursor: default;
+      }
+      a {
+        line-height: 3.4rem;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: $black-light;
+
+        &.active {
+          background-color: $black-dark;
+          color: $white-text;
+        }
+        &:hover {
+          color: $white-text;
+        }
       }
     }
   }
+  ul + ul li {
+    float: right;
+    padding: 0 1rem 0 0 ;
+  }
 }
-
-
-// <nav>
-//   <ul>
-//     <li><a href="/">Home</a></li>
-//     <li><a href="/dashboard">Dashboard</a></li>
-//     <li>
-//       <span class="add_new_board">Add Board</span>
-//     </li>
-//   </ul>
-// </nav>
