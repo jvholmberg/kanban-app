@@ -34,7 +34,7 @@ table {
 // THEME-DEFAULTS
 
 html {
-  font-family: 'Roboto', sans-serif;
+  // font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -51,6 +51,7 @@ body {
 @import 'colors';
 @import 'input';
 @import 'buttons';
+@import 'alerts';
 
 @import 'navigation';
 @import 'board';

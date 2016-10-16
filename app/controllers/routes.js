@@ -103,8 +103,19 @@ router.get('/profile', (req, res) => {
 *********************************************/
 router.get('/dashboard', (req, res) => {
   if (!req.user) return res.redirect('/login');
+
   res.render('dashboard', {
     title: 'Dashboard',
     isLoggedIn: true
   });
+});
+
+/*********************************************
+* Story
+* @restricted
+*********************************************/
+router.get('/story', (req, res) => {
+  if (!req.user) return res.redirect('/login');
+
+  
 });

@@ -26,9 +26,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-html {
-  font-family: 'Roboto', sans-serif; }
-
 main {
   margin-top: 5rem; }
 
@@ -85,63 +82,89 @@ body {
   color: #FFFFFF;
   text-decoration: none;
   box-sizing: border-box; }
-  .btn.primary-btn {
+  .btn.primary {
     background: #3BAFDA; }
-    .btn.primary-btn:hover {
+    .btn.primary:hover {
       background-color: #4FC1E9; }
-    .btn.primary-btn:active {
+    .btn.primary:active {
       -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
-  .btn.success-btn {
+  .btn.success {
     background: #8CC152; }
-    .btn.success-btn:hover {
+    .btn.success:hover {
       background-color: #A0D468; }
-    .btn.success-btn:active {
+    .btn.success:active {
       -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
-  .btn.warning-btn {
+  .btn.warning {
     background: #F6BB42; }
-    .btn.warning-btn:hover {
+    .btn.warning:hover {
       background-color: #FFCE54; }
-    .btn.warning-btn:active {
+    .btn.warning:active {
       -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
-  .btn.danger-btn {
+  .btn.danger {
     background: #DA4453; }
-    .btn.danger-btn:hover {
+    .btn.danger:hover {
       background-color: #ED5565; }
-    .btn.danger-btn:active {
+    .btn.danger:active {
       -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
-  .btn.info-btn {
+  .btn.info {
     background: #37BC9B; }
-    .btn.info-btn:hover {
+    .btn.info:hover {
       background-color: #48CFAD; }
-    .btn.info-btn:active {
+    .btn.info:active {
       -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
-  .btn.normal-btn {
+  .btn.normal {
     background: #AAB2BD; }
-    .btn.normal-btn:hover {
+    .btn.normal:hover {
       background-color: #CCD1D9; }
-    .btn.normal-btn:active {
+    .btn.normal:active {
       -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
-  .btn.default-btn {
+  .btn.default {
     color: #000000;
     background: #FFFFFF; }
-    .btn.default-btn:hover {
+    .btn.default:hover {
       background-color: #CCD1D9; }
-    .btn.default-btn:active {
+    .btn.default:active {
       -webkit-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1);
       box-shadow: inset 0 0.2rem 0.1rem 0 rgba(0, 0, 0, 0.1); }
+
+.alert {
+  display: block;
+  padding: 1.5rem;
+  width: 100%; }
+  .alert.primary {
+    background-color: #3BAFDA;
+    color: #FFFFFF; }
+  .alert.success {
+    background-color: #8CC152;
+    color: #FFFFFF; }
+  .alert.warning {
+    background-color: #F6BB42;
+    color: #FFFFFF; }
+  .alert.danger {
+    background-color: #DA4453;
+    color: #FFFFFF; }
+  .alert.info {
+    background-color: #37BC9B;
+    color: #FFFFFF; }
+  .alert.normal {
+    background-color: #AAB2BD;
+    color: #000000; }
+  .alert.default {
+    background-color: #FFFFFF;
+    color: #000000; }
 
 nav {
   position: fixed;

@@ -1,0 +1,42 @@
+.alert {
+
+  display: block;
+  padding: 1.5rem;
+  width: 100%;
+
+  &.primary {
+    background-color: $primary-normal;
+    color: $white-text;
+
+  }
+  &.success {
+    background-color: $success-normal;
+    color: $white-text;
+
+  }
+  &.warning {
+    background-color: $warning-normal;
+    color: $white-text;
+
+  }
+  &.danger {
+    background-color: $danger-normal;
+    color: $white-text;
+
+  }
+  &.info {
+    background-color: $info-normal;
+    color: $white-text;
+
+  }
+  &.normal {
+    background-color: $normal-normal;
+    color: $black-dark;
+
+  }
+  &.default {
+    background-color: $default-normal;
+    color: $black-dark;
+
+  }
+}

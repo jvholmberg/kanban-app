@@ -21,7 +21,7 @@
   text-decoration: none;
   box-sizing: border-box;
 
-  &.primary-btn {
+  &.primary {
     background: $primary-normal;
     &:hover {
       background-color: $primary-hover;
@@ -30,7 +30,7 @@
       @include box-shadow();
     }
   }
-  &.success-btn {
+  &.success {
     background: $success-normal;
     &:hover {
       background-color: $success-hover;
@@ -39,7 +39,7 @@
       @include box-shadow();
     }
   }
-  &.warning-btn {
+  &.warning {
     background: $warning-normal;
     &:hover {
       background-color: $warning-hover;
@@ -48,7 +48,7 @@
       @include box-shadow();
     }
   }
-  &.danger-btn {
+  &.danger {
     background: $danger-normal;
     &:hover {
       background-color: $danger-hover;
@@ -57,7 +57,7 @@
       @include box-shadow();
     }
   }
-  &.info-btn {
+  &.info {
     background: $info-normal;
     &:hover {
       background-color: $info-hover;
@@ -66,7 +66,7 @@
       @include box-shadow();
     }
   }
-  &.normal-btn {
+  &.normal {
     background: $normal-normal;
     &:hover {
       background-color: $normal-hover;
@@ -75,7 +75,7 @@
       @include box-shadow();
     }
   }
-  &.default-btn {
+  &.default {
     color: #000000;
     background: $default-normal;
     &:hover {
