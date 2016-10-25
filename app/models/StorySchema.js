@@ -4,16 +4,17 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var StorySchema = new Schema({
-  _owner: String,
+  _owner: Schema.Types.ObjectId,
   title: String,
   text: String,
-  users: [{
-    _user: String,
+  participants: [{
+    _user: Schema.Types.ObjectId,
     permission: String
   }],
+  boards: [Schema.Types.ObjectId],
   history: [{
-    _id: String,
-    _user: String,
+    _id: Schema.Types.ObjectId,
+    _user: Schema.Types.ObjectId,
     action: String,
     text: String,
     timestamp: { type: Date, default: Date.now }

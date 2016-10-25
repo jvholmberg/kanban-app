@@ -117,5 +117,5 @@ router.get('/dashboard', (req, res) => {
 router.get('/story', (req, res) => {
   if (!req.user) return res.redirect('/login');
 
-  
+
 });
